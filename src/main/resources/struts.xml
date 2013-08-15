@@ -23,7 +23,7 @@
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
 			
-			<result name="input">/jsp/formulario.jsp</result>
+			<result name="input">/jsp/form.jsp</result>
 			<result name="success">/jsp/resultado.jsp</result>
 			
 		</action>
