@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<action name="inicio" class="com.danielme.tips.struts2.actions.SubidaFicheroAction" method="inicio">
+			<result name="input">/jsp/form.jsp</result>
+		</action>
+
+		<action name="subirFicheroAction" class="com.danielme.tips.struts2.actions.SubidaFicheroAction" method="enviar">
+			
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">application/pdf</param>
+                <param name="maximumSize">2000000</param>
+				<param name="allowedExtensions">pdf</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			
+			<result name="input">/jsp/formulario.jsp</result>
+			<result name="success">/jsp/resultado.jsp</result>
+			
+		</action>
+
+
+	</package>
+
+</struts>
